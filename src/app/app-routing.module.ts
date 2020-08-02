@@ -1,10 +1,22 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { Routes } from '@angular/router';
+import { AdminComponent } from './layouts/admin/admin.component';
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const AppRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  }, {
+    path: '',
+    component: AdminComponent,
+    children: [
+        {
+      path: '',
+      loadChildren: () => import('./layouts/admin/admin.module').then(m => m.AdminModule)
+  }]},
+  {
+    path: '**',
+    redirectTo: 'User'
+  }
+];

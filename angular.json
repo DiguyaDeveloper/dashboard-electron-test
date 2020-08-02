@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dashboard-vegasgrill"
+    }
+  },
+  "defaultProject": "dashboard-vegasgrill",
+  "cli": {
+    "analytics": false
+  }
 }
